@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mds_pokemonTCG/custom_app_bar.dart';
 
-class PokemonDetails extends StatelessWidget {
+class PokemonDetails extends StatefulWidget {
+  @override
+  _PokemonDetailsState createState() => _PokemonDetailsState();
+}
+
+class _PokemonDetailsState extends State<PokemonDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

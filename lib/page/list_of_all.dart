@@ -1,9 +1,18 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:mds_pokemonTCG/api/poke_api.dart';
+import 'package:mds_pokemonTCG/model/poke_model.dart';
 import 'package:mds_pokemonTCG/page/pokemon_details.dart';
 
-class ListOfAll extends StatelessWidget {
+class ListOfAll extends StatefulWidget {
+  @override
+  _ListOfAllState createState() => _ListOfAllState();
+}
+
+class _ListOfAllState extends State<ListOfAll> {
+  PokeModel _thePokeModel;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,8 +27,16 @@ class ListOfAll extends StatelessWidget {
     List<Widget> retButtonList = new List<Widget>();
     for (int i = 0; i < nameList.length; i++) {
       retButtonList.add(new RaisedButton(
-        onPressed: () {
+        onPressed: () async {
           log('Clicked on ' + nameList[i]);
+
+          PokeModel newPokeModel = await getPokeInfo(nameList[i]);
+          setState(() {
+            _thePokeModel = newPokeModel;
+          });
+
+          log(_thePokeModel.toString());
+
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => PokemonDetails()));
         },
