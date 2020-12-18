@@ -12,7 +12,7 @@ Future<PokeModel> getPokeInfo(pokeName) async {
   log('call : ' + baseUrl + pokeName);
 
   Map<String, dynamic> responseJson = jsonDecode(rep.body);
-  log((responseJson).toString());
+
   return PokeModel.fromJSON(responseJson);
   // return (responseJson).toString()
 }
