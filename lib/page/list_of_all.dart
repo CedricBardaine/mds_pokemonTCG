@@ -30,15 +30,10 @@ class _ListOfAllState extends State<ListOfAll> {
         onPressed: () async {
           log('Clicked on ' + nameList[i]);
 
-          PokeModel newPokeModel = await getPokeInfo(nameList[i]);
-          setState(() {
-            _thePokeModel = newPokeModel;
-          });
-
-          log(_thePokeModel.toString());
-
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => PokemonDetails()));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => PokemonDetails(nameList[i])));
         },
         child: Text(nameList[i], style: TextStyle(color: Colors.white)),
         color: i % 2 == 0 ? Colors.black : Colors.grey[900],
