@@ -17,8 +17,22 @@ class _ListOfAllState extends State<ListOfAll> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(8.0),
-      child: ListView(
-        children: _buildButtonsList(context),
+      child: Column(
+        children: [
+          Container(
+            child: TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Recherche',
+              ),
+            ),
+          ),
+          Expanded(
+            child: ListView(
+              children: _buildButtonsList(context),
+            ),
+          )
+        ],
       ),
     );
   }
