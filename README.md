@@ -2,6 +2,20 @@
 
 A new Flutter project.
 
+## What to do ?
+
+Develop a Flutter client app for the API
+pokemontcg.io
+Your app should contains:
+* * [x] A list of all pokemon
+* * * [ ] Small picture
+* * * [x] Name
+* * [x] A detail page for each pokemon
+* * * [x] Big picture
+* * * [ ] All the pokemon details
+* * [x] Search bar
+* * * [x] Filter the pokemon list based on a string
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

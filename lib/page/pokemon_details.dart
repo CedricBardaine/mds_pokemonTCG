@@ -14,8 +14,8 @@ class PokemonDetails extends StatefulWidget {
 
 }
 
-// TODO: delete the error releved by the image network certainly fetching '' , make the widget appaear with the ternary instead of the parameter maybe
 // TODO: use expandeds instead of Row children
+// TODO: improve layout with data
 class _PokemonDetailsState extends State<PokemonDetails> {
   PokeModel _thePokeModel;
 
@@ -30,8 +30,9 @@ class _PokemonDetailsState extends State<PokemonDetails> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.network(
-                      _thePokeModel != null ? _thePokeModel.imageUrl : ''),
+                  _thePokeModel != null
+                      ? Image.network(_thePokeModel.imageUrl)
+                      : Container(),
                   Container(width: 8.0),
                   // Text(widget._pokeName),
                   Text(_thePokeModel != null ? _thePokeModel.name : ''),
