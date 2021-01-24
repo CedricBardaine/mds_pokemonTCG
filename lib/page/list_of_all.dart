@@ -23,6 +23,7 @@ class _ListOfAllState extends State<ListOfAll> {
       child: Column(
         children: [
           Container(
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 16),
             child: TextField(
               controller: customTFController,
               onChanged: (text) {

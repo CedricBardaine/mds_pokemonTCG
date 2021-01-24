@@ -13,9 +13,8 @@ Your app should contains:
 * * [x] A detail page for each pokemon
 * * * [x] Big picture
 * * * [ ] All the pokemon details
-* * [ ] Search bar
-* * * [ ] Filter the pokemon list based on a
-string
+* * [x] Search bar
+* * * [x] Filter the pokemon list based on a string
 
 ## Getting Started
 
