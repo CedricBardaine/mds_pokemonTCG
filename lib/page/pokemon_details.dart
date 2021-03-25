@@ -83,11 +83,24 @@ class _PokemonDetailsState extends State<PokemonDetails> {
     switch (type) {
       case "Grass":
         return Colors.green;
-        break;
       case "Fire":
         return Colors.red;
       case "Water":
         return Colors.blue;
+      case "Darkness":
+        return Colors.grey.shade800;
+      case "Dragon":
+        return Colors.indigo[800];
+      case "Fairy":
+        return Colors.pink;
+      case "Fighting":
+        return Colors.brown;
+      case "Lightning":
+        return Colors.yellow[700];
+      case "Metal":
+        return Colors.grey.shade600;
+      case "Psychic":
+        return Colors.purple;
       default: // "Colorless"
         return Colors.black;
     }
