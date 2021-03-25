@@ -35,4 +35,29 @@ platform :android do
     gradle(task: "clean assembleRelease")
     upload_to_play_store
   end
+
+  # desc "Distriubtion"
+  # lane :distribute do
+  #   build_android_app(...) # build_android_app is a built-in fastlane action.
+
+  #   firebase_app_distribution(
+  #       app: "1:524937240651:android:0213778385025afd7f2dce",
+  #       testers: "gbalas.sup@gmail.com, cedricbardaine@gmail.com", # "tester1@company.com, tester2@company.com"
+  #       release_notes: "Pitié que ça marche."
+  #   )
+  # end
+
+  #bundle exec fastlane send_to_testers
+  desc "Sending version to App Distribution"
+  lane :send_to_testers do
+    sh("cd ../../../mds_pokemonTCG && flutter clean")
+    sh("cd ../../../mds_pokemonTCG && flutter pub get")
+    sh("cd ../../../mds_pokemonTCG && flutter build apk --release")
+    firebase_app_distribution(
+      app: "1:524937240651:android:0213778385025afd7f2dce",
+      apk_path: "/home/cedrix/Documents/mds/dev/mds_pokemonTCG/build/app/outputs/apk/release/app-release.apk",
+      release_notes: "Pitié que ça marche.",
+      testers: "gbalas.sup@gmail.com, cedricbardaine@gmail.com, louis.geslin.fr@gmail.com"
+    )
+  end
 end
