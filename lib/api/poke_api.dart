@@ -11,7 +11,13 @@ Future<PokeModel> getPokeInfo(pokeName) async {
 
   log('call : ' + baseUrl + pokeName);
 
-  Map<String, dynamic> responseJson = jsonDecode(rep.body);
+  Map<String, dynamic> responseJson;
+  try {
+    responseJson = jsonDecode(rep.body);
+  } catch (error) {
+    log("Oh fuck");
+    // FIXME: utiliser le json ./mock.json
+  }
 
   return PokeModel.fromJSON(responseJson);
   // return (responseJson).toString()
