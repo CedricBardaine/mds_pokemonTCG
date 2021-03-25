@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "524937240651",
+    "project_id": "my-mds-pokemontcg",
+    "storage_bucket": "my-mds-pokemontcg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:524937240651:android:0213778385025afd7f2dce",
+        "android_client_info": {
+          "package_name": "com.example.mds_pokemonTCG"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "524937240651-o4sqdnfrohv3ftcn4kr0b5d55tmqumd9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAx4Y4HWrre08oaMEs82DS6PGFRt0ao2s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "524937240651-o4sqdnfrohv3ftcn4kr0b5d55tmqumd9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
