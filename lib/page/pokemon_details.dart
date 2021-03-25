@@ -23,30 +23,45 @@ class _PokemonDetailsState extends State<PokemonDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar('PokemonTCG'),
-      body: Center(
-        child: Column(
-          children: [
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  _thePokeModel != null
-                      ? Image.network(_thePokeModel.imageUrl)
-                      : Container(),
-                  Container(width: 8.0),
-                  // Text(widget._pokeName),
-                  Text(_thePokeModel != null ? _thePokeModel.name : ''),
-                ],
+      body: _thePokeModel != null
+          ? Column(
+              children: [
+                Expanded(
+                  flex: 15,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          _thePokeModel.name,
+                          style: TextStyle(
+                              fontSize: 32.0,
+                              color: colorFromType(_thePokeModel.types[0]),
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Container(height: 8.0),
+                        Image.network(_thePokeModel.imageUrl),
+                      ],
+                    ),
+                  ),
+                ),
+                // Container(height: 16.0),
+                Expanded(
+                  flex: 5,
+                  child: Text('Numéro National du Pokédex : ' +
+                      (_thePokeModel.nPN).toString()),
+                ),
+              ],
+            )
+          : Center(
+              child: Padding(
+              padding: EdgeInsets.fromLTRB(8.0, 0, 8.0, 0),
+              child: Text(
+                "Problème ! Le service en ligne est probablement injoignable.",
+                style: TextStyle(),
               ),
-            ),
-            Container(height: 16.0),
-            Expanded(
-              child: Text('Numéro National du Pokédex : ' +
-                  (_thePokeModel != null ? _thePokeModel.nPN : '').toString()),
-            ),
-          ],
-        ),
-      ),
+            )),
     );
   }
 
@@ -62,5 +77,32 @@ class _PokemonDetailsState extends State<PokemonDetails> {
       this._thePokeModel = newPokeModel;
     });
     print(_thePokeModel.toString());
+  }
+
+  Color colorFromType(String type) {
+    switch (type) {
+      case "Grass":
+        return Colors.green;
+      case "Fire":
+        return Colors.red;
+      case "Water":
+        return Colors.blue;
+      case "Darkness":
+        return Colors.grey.shade800;
+      case "Dragon":
+        return Colors.indigo[800];
+      case "Fairy":
+        return Colors.pink;
+      case "Fighting":
+        return Colors.brown;
+      case "Lightning":
+        return Colors.yellow[700];
+      case "Metal":
+        return Colors.grey.shade600;
+      case "Psychic":
+        return Colors.purple;
+      default: // "Colorless"
+        return Colors.black;
+    }
   }
 }
